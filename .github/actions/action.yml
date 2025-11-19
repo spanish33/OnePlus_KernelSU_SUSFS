@@ -1267,7 +1267,7 @@ runs:
           echo "| **KSU Version** | ${KSUVER:-unknown} |"
           
           if [ "$KSU_SHA" != "unknown" ]; then
-            echo "| **KSU Commit** | [\`${KSU_SHA:0:8}\`](https://github.com/KernelSU/KernelSU/commit/$KSU_SHA) |"
+            echo "| **KSU Commit** | [\`${KSU_SHA:0:8}\`](https://github.com/tiann/KernelSU/commit/$KSU_SHA) |"
           else
             echo "| **KSU Commit** | unknown |"
           fi
