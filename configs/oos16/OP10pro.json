@@ -1,8 +1,8 @@
 {
-  "model": "OP-PAD-MT6983",
-  "soc": "dimensity9000",
-  "branch": "wild/mt6983",
-  "manifest": "oneplus_pad_mt6983_w.xml",
+  "model": "OP10pro",
+  "soc": "waipio",
+  "branch": "wild/sm8450",
+  "manifest": "oneplus_10_pro_w.xml",
   "android_version": "android12",
   "kernel_version": "5.10",
   "os_version": "OOS16",
