@@ -7,7 +7,7 @@
   "kernel_version": "6.12",
   "os_version": "OOS16",
   "lto": "none",
-  "zyc_compiler": "",
+  "zyc_compiler": "https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250715-release/Clang-21.0.0git-20250715.tar.gz",
   "c_compiler": "kernel_platform/prebuilts/clang/host/linux-x86/clang-r547379/bin",
   "rust_compiler": "kernel_platform/prebuilts/rust/linux-x86/1.82.0/bin",
   "rust_build": true,
@@ -19,5 +19,5 @@
   "ttl": true,
   "ip_set": true,
   "unicode": true,
-  "uname": "OP-WILD"
+  "uname": "5-gb3b66ace21e0-ab14672634-4k"
 }
