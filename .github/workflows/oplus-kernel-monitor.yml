@@ -2,7 +2,7 @@ name: OnePlusOSS Kernel Monitor
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # Execute every 2 Hrs
+    - cron: '0 0 1 1 *' # Execute every 1st January
   workflow_dispatch:
 
 jobs:
