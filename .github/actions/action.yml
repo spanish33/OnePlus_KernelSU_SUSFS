@@ -1034,6 +1034,9 @@ runs:
               cd "$KSU_FOLDER"
               patch -p1 --forward < "$SUSFS_FOLDER/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch" || true
               patch -p1 --forward < "$PATCHES_FOLDER/managers.patch" || true
+              # Fix compile error on kernel 6.12
+              grep -q 'drivers/kernelsu/include' kernel/Kbuild || \
+              sed -i '/obj-$(CONFIG_KSU) += kernelsu.o/i ccflags-y += -I$(srctree)\/drivers\/kernelsu -I$(srctree)\/drivers\/kernelsu\/include' kernel/Kbuild
             fi
             ;;
           *)
