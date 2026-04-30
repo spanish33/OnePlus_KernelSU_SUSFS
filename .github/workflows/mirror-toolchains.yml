@@ -16,6 +16,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          
       - name: Ensure Single Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
