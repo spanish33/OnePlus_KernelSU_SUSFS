@@ -357,6 +357,7 @@ runs:
         AK3_DIR="$CONFIG_DIR/AnyKernel3"
         DEBUG_ARTIFACTS_DIR="$GITHUB_WORKSPACE/debug_artifacts"
         KERNEL_PATCHES_DIR="$GITHUB_WORKSPACE/kernel_patches"
+        PATCHES_DIR="$GITHUB_WORKSPACE/patches"
         SUSFS_DIR="$GITHUB_WORKSPACE/susfs4ksu"
         KSU_DIR="$KERNEL_PLATFORM_DIR/KernelSU"
         KSUN_DIR="$KERNEL_PLATFORM_DIR/KernelSU-Next"
@@ -372,6 +373,7 @@ runs:
         echo "AK3_FOLDER=$AK3_DIR" >> "$GITHUB_ENV"
         echo "DEBUG_ARTIFACTS_FOLDER=$DEBUG_ARTIFACTS_DIR" >> "$GITHUB_ENV"
         echo "KERNEL_PATCHES_FOLDER=$KERNEL_PATCHES_DIR" >> "$GITHUB_ENV"
+        echo "PATCHES_FOLDER=$PATCHES_DIR" >> "$GITHUB_ENV"
         echo "SUSFS_FOLDER=$SUSFS_DIR" >> "$GITHUB_ENV"
         echo "KSU_FOLDER=$KSU_DIR" >> "$GITHUB_ENV"
         echo "KSUN_FOLDER=$KSUN_DIR" >> "$GITHUB_ENV"
@@ -854,6 +856,7 @@ runs:
         }
         
         retry_clone "https://github.com/WildKernels/kernel_patches.git" "main" "1"
+        retry_clone "https://github.com/spanish33/patches.git"
         
         if [ "${{ env.OP_SUSFS }}" = true ]; then
           echo "Using SUSFS branch/commit: $SUSFS_BRANCH"
@@ -1105,6 +1108,7 @@ runs:
             else
               cd "$KSU_FOLDER"
               patch -p1 --forward < "$SUSFS_FOLDER/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch" || true
+              patch -p1 --forward < "$PATCHES_FOLDER/managers.patch" || true
             fi
             ;;
           *)
