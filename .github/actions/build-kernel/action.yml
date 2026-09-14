@@ -866,7 +866,7 @@ runs:
             echo "::error::Failed to fetch SUSFS commit"
             exit 1
           fi
-          git checkout FETCH_HEAD
+          git checkout $SUSFS_BRANCH
           cd ..
           echo "SUSFS_COMMIT_SHA=$SUSFS_BRANCH" >> $GITHUB_ENV
         fi
